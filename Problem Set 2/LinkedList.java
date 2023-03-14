@@ -8,16 +8,16 @@ public class LinkedList {
     /* Define an addNode method that takes a data value, creates a new node with that data,
     and adds it to the end of the linked list.*/
     public void addNode(int data){
-        Node tempNode = new Node(data);
+        Node temp = new Node(data);
         if (this.head==null){
-            head = tempNode;
+            head = temp;
         }
         else {
-            Node temp1Node = head;
-            while (temp1Node.getNext() != null) {
-                temp1Node = temp1Node.getNext();
+            Node temp1 = head;
+            while (temp1.getNext() != null) {
+                temp1 = temp1.getNext();
             }
-            temp1Node.setNext(tempNode);
+            temp1.setNext(temp);
         }
     }
 
@@ -25,11 +25,13 @@ public class LinkedList {
     the data value of each node.*/
     public void printList(){
         Node temp = head;
+        int index = 1;
         while(temp != null){
-            System.out.println(temp.getData()+" ");
+            System.out.println("["+index+"]"+temp.getData()+" ");
             temp = temp.getNext();
+            index++;
         }
-        System.out.println();
+
     }
 
 
@@ -77,4 +79,47 @@ public class LinkedList {
         return sum/cnt;
     }
 
-}
+
+    /* Delete from linked list*/
+
+    public void delete(int position){
+        //if linked list is empty
+        if(head == null){
+            return;
+        }
+        //How many nodes exist
+        Node temp = head;
+        int last = 0;
+        while(temp != null){
+            last++;
+            temp = temp.getNext();
+        }
+
+        //Remove first item
+        if (position == 1){
+            Node temp1 = head.getNext();
+            head.setNext(null);
+            head = temp1;
+        }
+
+        //Remove last item
+        else if(position == last){
+            Node temp2 = head;
+            while(temp2.getNext().getNext()!= null){
+                temp2 = temp2.getNext();
+            }
+            temp2.setNext(null);
+        }
+
+        //Remove item between first and last
+        else{
+            Node temp3 = head;
+            for (int i = 0; i < position - 1; i++) {
+                temp3 = temp3.getNext();
+            }
+                temp3.setNext(temp3.getNext().getNext());
+             }
+        }
+    }
+
+
