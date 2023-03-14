@@ -1,49 +1,66 @@
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
+    int[] list = {3, 2, 3, 5, 4, 8,
+                9, 10};
+    ArrayList<Integer> list1 = new ArrayList<>();
+      for(Integer i : list){
+        list1.add(i);
+      }
+
+    List<Integer> l1;
+      l1 = LCS(list1);
+        System.out.println(l1);
 
 
     }
 
 
-
-    /*Write a function (findUnique) that takes a list of strings as input and returns a new list
-     containing only the unique strings from the original list, in the order they first appear*/
-    public static ArrayList<String> findUnique(ArrayList<String> fullList){
-        ArrayList<String> newList = new ArrayList<>();
-        for (String s : fullList) {
-            if (!newList.contains(s)) {
-                newList.add(s);
+    /*Write a Java program that takes a list of integers as input and returns the longest subsequence of
+    consecutive integers in the list. */
+    public static List<Integer> LCS(ArrayList<Integer> list){
+        int[] lcsSize = new int[list.size()];
+        Arrays.fill(lcsSize,1);
+        //Dynamic programming for finding the length of the LCS
+        for(int i = 1; i<lcsSize.length; i++){
+            for (int j = 0; j<i; j++){
+                if(list.get(i)>list.get(j) && lcsSize[i]<=lcsSize[j]){
+                    lcsSize[i]=lcsSize[j]+1;
+                }
             }
         }
-        return newList;
-    }
+        //Displaying that array
+        int max = maxOfArray(lcsSize);
+        int position=0;
+        for(int i=0;i< lcsSize.length;i++) {
+             if(lcsSize[i]==max){
+                position = i;
+             }
+        }
 
+        List<Integer> newList = new ArrayList<>();
+        newList.add(list.get(position));
+        int temp = position;
 
-
-   /* 2. Write a function (findEven) that takes a list of integers as input and returns a new list
-    containing only the even integers from the original list, in the order they first appear.*/
-    public static ArrayList<Integer> findEven(ArrayList<Integer> fullArray){
-        ArrayList<Integer> newArray = new ArrayList<>();
-        for (Integer i : fullArray){
-            if(i%2==0){
-                newArray.add(i);
+        for (int i = temp; i > 0; i--){
+            if((lcsSize[position]-1)==lcsSize[i-1]){
+                newList.add(list.get(i-1));
+                position=i-1;
             }
         }
-        return newArray;
+
+        List<Integer> endList = new ArrayList<>();
+        for (int i = newList.size() - 1; i >= 0; i--) {
+            endList.add(newList.get(i));
+        }
+
+        return endList;
     }
-
-
-
-   /*3. Write a function (findKthSmallest) that takes a list of integers as input and returns the
-    k-th smallest integer in the list, where k is an integer parameter passed to the function. */
-   public static int findKthSmallest(List<Integer> list, int k) {
-       ArrayList<Integer> KthSmallest = new ArrayList<>(list);
-       Collections.sort(KthSmallest);
-       return KthSmallest.get(k-1);
-   }
+    public static int maxOfArray(int[] arr){
+        int[] temp = new int[arr.length];
+        System.arraycopy(arr, 0, temp, 0, arr.length);
+        Arrays.sort(temp);
+        return temp[temp.length-1];
+    }
 
 }
-
-
-
