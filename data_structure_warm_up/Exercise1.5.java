@@ -24,7 +24,7 @@ public class Main {
 
         for(int i = 1 ; i< LS.length; i++){
             for(int j = i-1 ; j<i ; j++){
-                if(list.get(i)==(list.get(j)+1) && LS[i]<=LS[j])
+                if(list.get(i)==(list.get(j)+1))
                     LS[i]=LS[j]+1;
             }
         }
