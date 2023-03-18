@@ -3,7 +3,7 @@ import java.util.Random;
 import java.util.Scanner;
 class GuessTheNumberGame {
     private static final int MIN_NUMBER = 1;
-    private static final int MAX_NUMBER = 3;
+    private static final int MAX_NUMBER = 1000;
     public static final String RED = "\u001B[31;1m";
     public static final String RESET = "\u001B[0m";
     public static final String BLACK_BACKGROUND = "\u001B[40;1m";
