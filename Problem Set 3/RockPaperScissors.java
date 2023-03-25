@@ -2,7 +2,7 @@ import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 public class Main{
-    public static int MAX_GAMES = -1;
+    public static int MAX_GAMES = 0;
     public static void main(String[] args) {
         RPS();
     }
