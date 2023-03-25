@@ -114,11 +114,13 @@ class GuessTheNumberGame {
     public static void numberGuesser() {
         String check;
         Scanner scanner = new Scanner(System.in);
+        while(true){
         try {
             System.out.println("\033[44mWelcome to number guessing game!\033[0m\n Press 1 to play or 2 to exit");
             check = scanner.nextLine();
             if(check.equals("1")){
                 nrGuesser();
+                break;
             }
             else if(check.equals("2")){
                 System.out.println("Goodbye");
@@ -130,7 +132,7 @@ class GuessTheNumberGame {
         }catch (IllegalArgumentException exception){
             System.err.println(exception.getMessage());
         }
-
+        }
         boolean check1 = true;
 
         while (check1) {
