@@ -27,7 +27,6 @@ public class Main {
             long endTime = System.nanoTime();
             linkedListTime += (endTime - startTime);
 
-            // Search ArrayList
             startTime = System.nanoTime();
             index = arrayList.indexOf(target);
             endTime = System.nanoTime();
