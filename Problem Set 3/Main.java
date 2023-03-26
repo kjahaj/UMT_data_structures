@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-    int[] num = {9,5,7,2,1};
+    int[] num = {20,9,5,7,2,1};
     int[] num1 = {4,1,4};
     System.out.println(maxDifference(num));
     int[] num3 = commonElements(num,num1);
@@ -28,9 +28,9 @@ public class Main {
         for(int i=1; i<arr.length; i++){
             int max = 0;
             for(int j=0; j<i; j++){
-                if(arr[i]>arr[j])
-                    if(max<arr[i]-arr[j]){
-                        max = arr[i]-arr[j];
+                if(arr[i]<arr[j])
+                    if(max<arr[j]-arr[i]){
+                        max = arr[j]-arr[i];
                         maxDiff[i]=max;
                     }
             }
