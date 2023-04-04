@@ -36,12 +36,12 @@ public class Playlist {
             System.out.println(playlist);
         }
 
-        public double playlistDuration(){
-            double totalMinutes = 0.0;
+        public int playlistDuration(){
+            double totalSeconds = 0.0;
             for (Song song : playlist) {
-                totalMinutes += song.getDuration();
+                totalSeconds += (((int)song.getDuration())*60)+((song.getDuration()-((int)song.getDuration()))*10);
             }
-            return totalMinutes*60;
+            return (int)totalSeconds;
         }
 
         public void sortByDuration(){
