@@ -10,7 +10,7 @@ class Main {
             while(scanner.hasNext()) {
                 String word = scanner.next().toLowerCase().replaceAll("[^a-zA-Z ]", "");
                 WordOccurrence wordOccurrence = findWordOccurrence(wordList, word);
-                    if (!Objects.equals(wordOccurrence, null)) {
+                    if (Objects.equals(wordOccurrence, null)) {
                         wordOccurrence.occurrence++;
                     } else {
                         wordList.add(new WordOccurrence(word, 1));
