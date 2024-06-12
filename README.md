@@ -1,3 +1,3 @@
-# UMT Data Structures course
-### © Klei Jahaj
-This repository holds all the homework for the Data Structures course.
+# Data Structures
+### Klei Jahaj
+This repository holds all the code for implementing and using different data structures in Java.
